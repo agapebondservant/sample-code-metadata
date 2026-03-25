@@ -1,0 +1,41 @@
+/*This is a java source file located at src/main/java/eu/hansolo/spacefx/Difficulty.java from repository https://github.com/agapebondservant/spacefx-sample-javafx.git.
+
+ Package: eu.hansolo.spacefx
+
+ Purpose: Enumeration representing different difficulty levels in the game
+
+ Classes:
+- eu.hansolo.spacefx.Difficulty
+
+ Methods:
+- {'method_name': 'eu.hansolo.spacefx.Difficulty.<init>', 'code': 'Difficulty(final int noOfEnemies, final int noOfSmartEnemies) {\n        this.noOfEnemies      = noOfEnemies;\n        this.noOfSmartEnemies = noOfSmartEnemies;\n    }', 'callees': [], 'parameters': 'noOfEnemies (int), noOfSmartEnemies (int)', 'return value': 'None, constructor', 'exceptions': []}*/
+/*
+ * Copyright (c) 2020 by Gerrit Grunwald
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package eu.hansolo.spacefx;
+
+
+public enum Difficulty {
+    EASY(5, 0), NORMAL(7, 1), HARD(10, 2);
+
+    public final int noOfEnemies;
+    public final int noOfSmartEnemies;
+
+    Difficulty(final int noOfEnemies, final int noOfSmartEnemies) {
+        this.noOfEnemies      = noOfEnemies;
+        this.noOfSmartEnemies = noOfSmartEnemies;
+    }
+}

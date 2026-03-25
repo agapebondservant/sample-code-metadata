@@ -1,0 +1,102 @@
+/*This is a java source file located at src/main/java/eu/hansolo/spacefx/Level.java from repository https://github.com/agapebondservant/spacefx-sample-javafx.git.
+
+ Package: eu.hansolo.spacefx
+
+ Purpose: Defines an interface for a level in the game, providing methods to access various images and difficulty level.
+
+Dependencies:
+- src/main/java/eu/hansolo/spacefx/Level.java imports javafx.scene.image.Image
+
+ Classes:
+- eu.hansolo.spacefx.Level
+
+ Methods:
+- {'method_name': 'eu.hansolo.spacefx.Level.getIndex', 'code': 'int getIndex();', 'callees': [], 'parameters': '', 'return value': 'int', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getDifficulty', 'code': 'Difficulty getDifficulty();', 'callees': [], 'parameters': '', 'return value': 'Difficulty', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getBackgroundImg', 'code': 'Image getBackgroundImg();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getEnemyImages', 'code': 'Image[] getEnemyImages();', 'callees': [], 'parameters': '', 'return value': 'Image[]', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getEnemyBossImg0', 'code': 'Image getEnemyBossImg0();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getEnemyBossImg1', 'code': 'Image getEnemyBossImg1();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getEnemyBossImg2', 'code': 'Image getEnemyBossImg2();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getEnemyBossImg3', 'code': 'Image getEnemyBossImg3();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getEnemyBossImg4', 'code': 'Image getEnemyBossImg4();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getEnemyBombImg', 'code': 'Image getEnemyBombImg();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getEnemyTorpedoImg', 'code': 'Image getEnemyTorpedoImg();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getEnemyBossTorpedoImg', 'code': 'Image getEnemyBossTorpedoImg();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getEnemyBossRocketImg', 'code': 'Image getEnemyBossRocketImg();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getExplosionImg', 'code': 'Image getExplosionImg();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getEnemyBossHitImg', 'code': 'Image getEnemyBossHitImg();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getEnemyBossExplosionImg', 'code': 'Image getEnemyBossExplosionImg();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getEnemyRocketExplosionImg', 'code': 'Image getEnemyRocketExplosionImg();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getLevelBossImg', 'code': 'Image getLevelBossImg();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getLevelBossTorpedoImg', 'code': 'Image getLevelBossTorpedoImg();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getLevelBossRocketImg', 'code': 'Image getLevelBossRocketImg();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getLevelBossBombImg', 'code': 'Image getLevelBossBombImg();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level.getLevelBossExplosionImg', 'code': 'Image getLevelBossExplosionImg();', 'callees': [], 'parameters': '', 'return value': 'Image', 'exceptions': []}*/
+/*
+ * Copyright (c) 2020 by Gerrit Grunwald
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package eu.hansolo.spacefx;
+
+import javafx.scene.image.Image;
+
+
+public interface Level {
+
+    int getIndex();
+
+    Difficulty getDifficulty();
+
+    Image getBackgroundImg();
+
+    Image[] getEnemyImages();
+
+    Image getEnemyBossImg0();
+
+    Image getEnemyBossImg1();
+
+    Image getEnemyBossImg2();
+
+    Image getEnemyBossImg3();
+
+    Image getEnemyBossImg4();
+
+    Image getEnemyBombImg();
+
+    Image getEnemyTorpedoImg();
+
+    Image getEnemyBossTorpedoImg();
+
+    Image getEnemyBossRocketImg();
+
+    Image getExplosionImg();
+
+    Image getEnemyBossHitImg();
+
+    Image getEnemyBossExplosionImg();
+
+    Image getEnemyRocketExplosionImg();
+
+    Image getLevelBossImg();
+
+    Image getLevelBossTorpedoImg();
+
+    Image getLevelBossRocketImg();
+
+    Image getLevelBossBombImg();
+
+    Image getLevelBossExplosionImg();
+}
