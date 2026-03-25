@@ -11,7 +11,7 @@ Dependencies:
 - eu.hansolo.spacefx.Fonts
 
  Methods:
-- {'method_name': 'eu.hansolo.spacefx.Fonts.spaceBoy', 'code': 'public static final Font spaceBoy(final double size) { return new Font(SPACE_BOY, size); }', 'callees': [], 'parameters': 'size: double', 'return value': 'Font', 'exceptions': []}*/
+- {'method_name': 'eu.hansolo.spacefx.Fonts.spaceBoy', 'code': 'public static final Font spaceBoy(final double size) { return new Font(SPACE_BOY, size); }', 'callees': [], 'parameters': 'size: double', 'return value': 'Font object with the specified size', 'exceptions': []}*/
 /*
  * Copyright (c) 2020 by Gerrit Grunwald
  *

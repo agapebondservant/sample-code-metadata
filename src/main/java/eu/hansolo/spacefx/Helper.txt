@@ -2,7 +2,7 @@
 
  Package: eu.hansolo.spacefx
 
- Purpose: Provides utility methods for various geometric calculations and node manipulation.
+ Purpose: Provides utility methods for various geometric calculations and node manipulation
 
 Dependencies:
 - src/main/java/eu/hansolo/spacefx/Helper.java imports javafx.scene.Node

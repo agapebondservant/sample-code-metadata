@@ -2,7 +2,7 @@
 
  Package: eu.hansolo.spacefx
 
- Purpose: Implementation of the Level3 class, providing images and difficulty level for the game level 3
+ Purpose: Implementation of the Level3 class, representing the third level of the game
 
 Dependencies:
 - src/main/java/eu/hansolo/spacefx/Level3.java imports javafx.scene.image.Image

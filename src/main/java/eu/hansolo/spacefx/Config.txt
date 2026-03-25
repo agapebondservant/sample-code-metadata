@@ -2,7 +2,7 @@
 
  Package: eu.hansolo.spacefx
 
- Purpose: Configuration class for SpaceFX application
+ Purpose: Configuration class for SpaceFX game
 
 Dependencies:
 - src/main/java/eu/hansolo/spacefx/Config.java imports javafx.application.ConditionalFeature

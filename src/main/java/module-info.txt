@@ -1,6 +1,6 @@
 /*This is a java source file located at src/main/java/module-info.java from repository https://github.com/agapebondservant/spacefx-sample-javafx.git.
 
- Purpose: Module declaration for the spacefx module, specifying required dependencies and exported packages.*/
+ Purpose: Java module definition for SpaceFX application*/
 module spacefx {
 
     // Java

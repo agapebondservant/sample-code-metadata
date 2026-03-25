@@ -2,12 +2,11 @@
 
  Package: eu.hansolo.spacefx
 
- Purpose: Implementation of the Level2 class that represents the second level of the game
+ Purpose: Implementation of Level interface for level 2
 
 Dependencies:
 - src/main/java/eu/hansolo/spacefx/Level2.java imports javafx.scene.image.Image
-- src/main/java/eu/hansolo/spacefx/Level2.java imports static eu.hansolo.spacefx.Config.BKG_SCALING_FACTOR
-- src/main/java/eu/hansolo/spacefx/Level2.java imports static eu.hansolo.spacefx.Config.SCALING_FACTOR
+- src/main/java/eu/hansolo/spacefx/Level2.java imports eu.hansolo.spacefx.Config
 
  Classes:
 - eu.hansolo.spacefx.Level2

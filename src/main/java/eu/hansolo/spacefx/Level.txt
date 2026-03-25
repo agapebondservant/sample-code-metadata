@@ -2,13 +2,14 @@
 
  Package: eu.hansolo.spacefx
 
- Purpose: Defines an interface for a level in the game, providing methods to access various images and difficulty level.
+ Purpose: Defines an interface for a level in the game, providing methods to access level-related images and difficulty
 
 Dependencies:
 - src/main/java/eu/hansolo/spacefx/Level.java imports javafx.scene.image.Image
 
  Classes:
 - eu.hansolo.spacefx.Level
+- eu.hansolo.spacefx.Difficulty
 
  Methods:
 - {'method_name': 'eu.hansolo.spacefx.Level.getIndex', 'code': 'int getIndex();', 'callees': [], 'parameters': '', 'return value': 'int', 'exceptions': []}

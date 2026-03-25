@@ -2,7 +2,7 @@
 
  Package: eu.hansolo.spacefx
 
- Purpose: Enum defining different types of waves with their respective coordinates and properties
+ Purpose: Enum representing different types of waves with their respective coordinates and animation properties
 
 Dependencies:
 - src/main/java/eu/hansolo/spacefx/WaveType.java imports java.util.ArrayList
