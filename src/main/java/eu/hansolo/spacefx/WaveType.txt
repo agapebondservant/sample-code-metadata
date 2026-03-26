@@ -2,7 +2,7 @@
 
  Package: eu.hansolo.spacefx
 
- Purpose: Enum representing different types of waves with their respective coordinates and animation properties
+ Purpose: Enum representing different types of waves with their respective coordinates and properties
 
 Dependencies:
 - src/main/java/eu/hansolo/spacefx/WaveType.java imports java.util.ArrayList
@@ -13,8 +13,8 @@ Dependencies:
 - eu.hansolo.spacefx.WaveType
 
  Methods:
-- {'method_name': 'eu.hansolo.spacefx.WaveType.<init>', 'code': 'WaveType(final int waveSegments, final double totalFrames) { ... }', 'callees': ['eu.hansolo.spacefx.WaveType.addCoordinates'], 'parameters': 'waveSegments: int, totalFrames: double', 'return value': 'None', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.WaveType.addCoordinates', 'code': 'private List<WaveCoordinate> addCoordinates(final double totalFrames, final double[] ap0, final double[] cp1, final double[] cp2, final double[] ap3) { ... }', 'callees': ['eu.hansolo.spacefx.Helper.bezierCurve4Points'], 'parameters': 'totalFrames: double, ap0: double[], cp1: double[], cp2: double[], ap3: double[]', 'return value': 'List<WaveCoordinate>', 'exceptions': []}*/
+- {'method_name': 'eu.hansolo.spacefx.WaveType.<init>', 'code': 'WaveType(final int waveSegments, final double totalFrames) {...}', 'callees': ['eu.hansolo.spacefx.WaveType.addCoordinates'], 'parameters': 'waveSegments: int, totalFrames: double', 'return value': 'None', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.WaveType.addCoordinates', 'code': 'private List<WaveCoordinate> addCoordinates(final double totalFrames, final double[] ap0, final double[] cp1, final double[] cp2, final double[] ap3) {...}', 'callees': ['eu.hansolo.spacefx.Helper.bezierCurve4Points'], 'parameters': 'totalFrames: double, ap0: double[], cp1: double[], cp2: double[], ap3: double[]', 'return value': 'List of WaveCoordinate objects', 'exceptions': []}*/
 /*
  * Copyright (c) 2020 by Gerrit Grunwald
  *

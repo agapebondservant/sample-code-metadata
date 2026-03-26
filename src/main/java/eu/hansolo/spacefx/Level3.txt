@@ -2,7 +2,7 @@
 
  Package: eu.hansolo.spacefx
 
- Purpose: Implementation of the Level3 class, representing the third level of the game
+ Purpose: Implementation of Level interface for level 3
 
 Dependencies:
 - src/main/java/eu/hansolo/spacefx/Level3.java imports javafx.scene.image.Image
@@ -13,28 +13,28 @@ Dependencies:
 - eu.hansolo.spacefx.Level3
 
  Methods:
-- {'method_name': 'eu.hansolo.spacefx.Level3.getIndex', 'code': '@Override public int getIndex() { return index; }', 'callees': [], 'parameters': '', 'return value': 'int, the index of the level', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getDifficulty', 'code': '@Override public Difficulty getDifficulty() { return difficulty; }', 'callees': [], 'parameters': '', 'return value': 'Difficulty, the difficulty level of the level', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getBackgroundImg', 'code': '@Override public Image getBackgroundImg() { return backgroundImg; }', 'callees': [], 'parameters': '', 'return value': 'Image, the background image of the level', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyImages', 'code': '@Override public Image[] getEnemyImages() { return enemyImages; }', 'callees': [], 'parameters': '', 'return value': 'Image[], an array of enemy images', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossImg0', 'code': '@Override public Image getEnemyBossImg0() { return enemyBossImg0; }', 'callees': [], 'parameters': '', 'return value': 'Image, the first enemy boss image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossImg1', 'code': '@Override public Image getEnemyBossImg1() { return enemyBossImg1; }', 'callees': [], 'parameters': '', 'return value': 'Image, the second enemy boss image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossImg2', 'code': '@Override public Image getEnemyBossImg2() { return enemyBossImg2; }', 'callees': [], 'parameters': '', 'return value': 'Image, the third enemy boss image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossImg3', 'code': '@Override public Image getEnemyBossImg3() { return enemyBossImg3; }', 'callees': [], 'parameters': '', 'return value': 'Image, the fourth enemy boss image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossImg4', 'code': '@Override public Image getEnemyBossImg4() { return enemyBossImg4; }', 'callees': [], 'parameters': '', 'return value': 'Image, the fifth enemy boss image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBombImg', 'code': '@Override public Image getEnemyBombImg() { return enemyBombImg; }', 'callees': [], 'parameters': '', 'return value': 'Image, the enemy bomb image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyTorpedoImg', 'code': '@Override public Image getEnemyTorpedoImg() { return enemyTorpedoImg; }', 'callees': [], 'parameters': '', 'return value': 'Image, the enemy torpedo image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossTorpedoImg', 'code': '@Override public Image getEnemyBossTorpedoImg() { return enemyBossTorpedoImg; }', 'callees': [], 'parameters': '', 'return value': 'Image, the enemy boss torpedo image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossRocketImg', 'code': '@Override public Image getEnemyBossRocketImg() { return enemyBossRocketImg; }', 'callees': [], 'parameters': '', 'return value': 'Image, the enemy boss rocket image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getExplosionImg', 'code': '@Override public Image getExplosionImg() { return explosionImg; }', 'callees': [], 'parameters': '', 'return value': 'Image, the explosion image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossHitImg', 'code': '@Override public Image getEnemyBossHitImg() { return enemyBossHitImg; }', 'callees': [], 'parameters': '', 'return value': 'Image, the enemy boss hit image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossExplosionImg', 'code': '@Override public Image getEnemyBossExplosionImg() { return enemyBossExplosionImg; }', 'callees': [], 'parameters': '', 'return value': 'Image, the enemy boss explosion image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyRocketExplosionImg', 'code': '@Override public Image getEnemyRocketExplosionImg() { return enemyRocketExplosionImg; }', 'callees': [], 'parameters': '', 'return value': 'Image, the enemy rocket explosion image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getLevelBossImg', 'code': '@Override public Image getLevelBossImg() { return levelBossImg; }', 'callees': [], 'parameters': '', 'return value': 'Image, the level boss image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getLevelBossTorpedoImg', 'code': '@Override public Image getLevelBossTorpedoImg() { return levelBossTorpedoImg; }', 'callees': [], 'parameters': '', 'return value': 'Image, the level boss torpedo image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getLevelBossRocketImg', 'code': '@Override public Image getLevelBossRocketImg() { return levelBossRocketImg; }', 'callees': [], 'parameters': '', 'return value': 'Image, the level boss rocket image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getLevelBossBombImg', 'code': '@Override public Image getLevelBossBombImg() { return levelBossBombImg; }', 'callees': [], 'parameters': '', 'return value': 'Image, the level boss bomb image', 'exceptions': []}
-- {'method_name': 'eu.hansolo.spacefx.Level3.getLevelBossExplosionImg', 'code': '@Override public Image getLevelBossExplosionImg() { return levelBossExplosionImg; }', 'callees': [], 'parameters': '', 'return value': 'Image, the level boss explosion image', 'exceptions': []}*/
+- {'method_name': 'eu.hansolo.spacefx.Level3.getIndex', 'code': '@Override public int getIndex() { return index; }', 'callees': [], 'parameters': '', 'return value': 'int index', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getDifficulty', 'code': '@Override public Difficulty getDifficulty() { return difficulty; }', 'callees': [], 'parameters': '', 'return value': 'Difficulty difficulty', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getBackgroundImg', 'code': '@Override public Image getBackgroundImg() { return backgroundImg; }', 'callees': [], 'parameters': '', 'return value': 'Image backgroundImg', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyImages', 'code': '@Override public Image[] getEnemyImages() { return enemyImages; }', 'callees': [], 'parameters': '', 'return value': 'Image[] enemyImages', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossImg0', 'code': '@Override public Image getEnemyBossImg0() { return enemyBossImg0; }', 'callees': [], 'parameters': '', 'return value': 'Image enemyBossImg0', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossImg1', 'code': '@Override public Image getEnemyBossImg1() { return enemyBossImg1; }', 'callees': [], 'parameters': '', 'return value': 'Image enemyBossImg1', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossImg2', 'code': '@Override public Image getEnemyBossImg2() { return enemyBossImg2; }', 'callees': [], 'parameters': '', 'return value': 'Image enemyBossImg2', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossImg3', 'code': '@Override public Image getEnemyBossImg3() { return enemyBossImg3; }', 'callees': [], 'parameters': '', 'return value': 'Image enemyBossImg3', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossImg4', 'code': '@Override public Image getEnemyBossImg4() { return enemyBossImg4; }', 'callees': [], 'parameters': '', 'return value': 'Image enemyBossImg4', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBombImg', 'code': '@Override public Image getEnemyBombImg() { return enemyBombImg; }', 'callees': [], 'parameters': '', 'return value': 'Image enemyBombImg', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyTorpedoImg', 'code': '@Override public Image getEnemyTorpedoImg() { return enemyTorpedoImg; }', 'callees': [], 'parameters': '', 'return value': 'Image enemyTorpedoImg', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossTorpedoImg', 'code': '@Override public Image getEnemyBossTorpedoImg() { return enemyBossTorpedoImg; }', 'callees': [], 'parameters': '', 'return value': 'Image enemyBossTorpedoImg', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossRocketImg', 'code': '@Override public Image getEnemyBossRocketImg() { return enemyBossRocketImg; }', 'callees': [], 'parameters': '', 'return value': 'Image enemyBossRocketImg', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getExplosionImg', 'code': '@Override public Image getExplosionImg() { return explosionImg; }', 'callees': [], 'parameters': '', 'return value': 'Image explosionImg', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossHitImg', 'code': '@Override public Image getEnemyBossHitImg() { return enemyBossHitImg; }', 'callees': [], 'parameters': '', 'return value': 'Image enemyBossHitImg', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyBossExplosionImg', 'code': '@Override public Image getEnemyBossExplosionImg() { return enemyBossExplosionImg; }', 'callees': [], 'parameters': '', 'return value': 'Image enemyBossExplosionImg', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getEnemyRocketExplosionImg', 'code': '@Override public Image getEnemyRocketExplosionImg() { return enemyRocketExplosionImg; }', 'callees': [], 'parameters': '', 'return value': 'Image enemyRocketExplosionImg', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getLevelBossImg', 'code': '@Override public Image getLevelBossImg() { return levelBossImg; }', 'callees': [], 'parameters': '', 'return value': 'Image levelBossImg', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getLevelBossTorpedoImg', 'code': '@Override public Image getLevelBossTorpedoImg() { return levelBossTorpedoImg; }', 'callees': [], 'parameters': '', 'return value': 'Image levelBossTorpedoImg', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getLevelBossRocketImg', 'code': '@Override public Image getLevelBossRocketImg() { return levelBossRocketImg; }', 'callees': [], 'parameters': '', 'return value': 'Image levelBossRocketImg', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getLevelBossBombImg', 'code': '@Override public Image getLevelBossBombImg() { return levelBossBombImg; }', 'callees': [], 'parameters': '', 'return value': 'Image levelBossBombImg', 'exceptions': []}
+- {'method_name': 'eu.hansolo.spacefx.Level3.getLevelBossExplosionImg', 'code': '@Override public Image getLevelBossExplosionImg() { return levelBossExplosionImg; }', 'callees': [], 'parameters': '', 'return value': 'Image levelBossExplosionImg', 'exceptions': []}*/
 /*
  * Copyright (c) 2020 by Gerrit Grunwald
  *

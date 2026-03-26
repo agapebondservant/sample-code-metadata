@@ -1,1 +1,116 @@
-{"file_path": "src/main/java/eu/hansolo/spacefx/Level1.java", "git_repo": "https://github.com/agapebondservant/spacefx-sample-javafx.git", "language": "java", "purpose": "Implementation of the Level interface for Level 1", "package": "eu.hansolo.spacefx", "imports.0": "javafx.scene.image.Image", "imports.1": "static eu.hansolo.spacefx.Config.BKG_SCALING_FACTOR", "imports.2": "static eu.hansolo.spacefx.Config.SCALING_FACTOR", "classes.0": "eu.hansolo.spacefx.Level1", "methods.0.method_name": "eu.hansolo.spacefx.Level1.getIndex", "methods.0.code": "@Override public int getIndex() { return index; }", "methods.0.parameters": "", "methods.0.return value": "int", "methods.1.method_name": "eu.hansolo.spacefx.Level1.getDifficulty", "methods.1.code": "@Override public Difficulty getDifficulty() { return difficulty; }", "methods.1.parameters": "", "methods.1.return value": "Difficulty", "methods.2.method_name": "eu.hansolo.spacefx.Level1.getBackgroundImg", "methods.2.code": "@Override public Image getBackgroundImg() { return backgroundImg; }", "methods.2.parameters": "", "methods.2.return value": "Image", "methods.3.method_name": "eu.hansolo.spacefx.Level1.getEnemyImages", "methods.3.code": "@Override public Image[] getEnemyImages() { return enemyImages; }", "methods.3.parameters": "", "methods.3.return value": "Image[]", "methods.4.method_name": "eu.hansolo.spacefx.Level1.getEnemyBossImg0", "methods.4.code": "@Override public Image getEnemyBossImg0() { return enemyBossImg0; }", "methods.4.parameters": "", "methods.4.return value": "Image", "methods.5.method_name": "eu.hansolo.spacefx.Level1.getEnemyBossImg1", "methods.5.code": "@Override public Image getEnemyBossImg1() { return enemyBossImg1; }", "methods.5.parameters": "", "methods.5.return value": "Image", "methods.6.method_name": "eu.hansolo.spacefx.Level1.getEnemyBossImg2", "methods.6.code": "@Override public Image getEnemyBossImg2() { return enemyBossImg2; }", "methods.6.parameters": "", "methods.6.return value": "Image", "methods.7.method_name": "eu.hansolo.spacefx.Level1.getEnemyBossImg3", "methods.7.code": "@Override public Image getEnemyBossImg3() { return enemyBossImg3; }", "methods.7.parameters": "", "methods.7.return value": "Image", "methods.8.method_name": "eu.hansolo.spacefx.Level1.getEnemyBossImg4", "methods.8.code": "@Override public Image getEnemyBossImg4() { return enemyBossImg4; }", "methods.8.parameters": "", "methods.8.return value": "Image", "methods.9.method_name": "eu.hansolo.spacefx.Level1.getEnemyBombImg", "methods.9.code": "@Override public Image getEnemyBombImg() { return enemyBombImg; }", "methods.9.parameters": "", "methods.9.return value": "Image", "methods.10.method_name": "eu.hansolo.spacefx.Level1.getEnemyTorpedoImg", "methods.10.code": "@Override public Image getEnemyTorpedoImg() { return enemyTorpedoImg; }", "methods.10.parameters": "", "methods.10.return value": "Image", "methods.11.method_name": "eu.hansolo.spacefx.Level1.getEnemyBossTorpedoImg", "methods.11.code": "@Override public Image getEnemyBossTorpedoImg() { return enemyBossTorpedoImg; }", "methods.11.parameters": "", "methods.11.return value": "Image", "methods.12.method_name": "eu.hansolo.spacefx.Level1.getEnemyBossRocketImg", "methods.12.code": "@Override public Image getEnemyBossRocketImg() { return enemyBossRocketImg; }", "methods.12.parameters": "", "methods.12.return value": "Image", "methods.13.method_name": "eu.hansolo.spacefx.Level1.getExplosionImg", "methods.13.code": "@Override public Image getExplosionImg() { return explosionImg; }", "methods.13.parameters": "", "methods.13.return value": "Image", "methods.14.method_name": "eu.hansolo.spacefx.Level1.getEnemyBossHitImg", "methods.14.code": "@Override public Image getEnemyBossHitImg() { return enemyBossHitImg; }", "methods.14.parameters": "", "methods.14.return value": "Image", "methods.15.method_name": "eu.hansolo.spacefx.Level1.getEnemyBossExplosionImg", "methods.15.code": "@Override public Image getEnemyBossExplosionImg() { return enemyBossExplosionImg; }", "methods.15.parameters": "", "methods.15.return value": "Image", "methods.16.method_name": "eu.hansolo.spacefx.Level1.getEnemyRocketExplosionImg", "methods.16.code": "@Override public Image getEnemyRocketExplosionImg() { return enemyRocketExplosionImg; }", "methods.16.parameters": "", "methods.16.return value": "Image", "methods.17.method_name": "eu.hansolo.spacefx.Level1.getLevelBossImg", "methods.17.code": "@Override public Image getLevelBossImg() { return levelBossImg; }", "methods.17.parameters": "", "methods.17.return value": "Image", "methods.18.method_name": "eu.hansolo.spacefx.Level1.getLevelBossTorpedoImg", "methods.18.code": "@Override public Image getLevelBossTorpedoImg() { return levelBossTorpedoImg; }", "methods.18.parameters": "", "methods.18.return value": "Image", "methods.19.method_name": "eu.hansolo.spacefx.Level1.getLevelBossRocketImg", "methods.19.code": "@Override public Image getLevelBossRocketImg() { return levelBossRocketImg; }", "methods.19.parameters": "", "methods.19.return value": "Image", "methods.20.method_name": "eu.hansolo.spacefx.Level1.getLevelBossBombImg", "methods.20.code": "@Override public Image getLevelBossBombImg() { return levelBossBombImg; }", "methods.20.parameters": "", "methods.20.return value": "Image", "methods.21.method_name": "eu.hansolo.spacefx.Level1.getLevelBossExplosionImg", "methods.21.code": "@Override public Image getLevelBossExplosionImg() { return levelBossExplosionImg; }", "methods.21.parameters": "", "methods.21.return value": "Image"}
+classes_0: eu.hansolo.spacefx.Level1
+file_path: src/main/java/eu/hansolo/spacefx/Level1.java
+git_repo: https://github.com/agapebondservant/spacefx-sample-javafx.git
+imports_0: javafx.scene.image.Image
+imports_1: static eu.hansolo.spacefx.Config.BKG_SCALING_FACTOR
+imports_2: static eu.hansolo.spacefx.Config.SCALING_FACTOR
+language: java
+methods_0_code: '@Override public int getIndex() { return index; }'
+methods_0_method_name: eu.hansolo.spacefx.Level1.getIndex
+methods_0_parameters: ''
+methods_0_return value: int index
+methods_10_code: '@Override public Image getEnemyTorpedoImg() { return enemyTorpedoImg;
+  }'
+methods_10_method_name: eu.hansolo.spacefx.Level1.getEnemyTorpedoImg
+methods_10_parameters: ''
+methods_10_return value: Image enemyTorpedoImg
+methods_11_code: '@Override public Image getEnemyBossTorpedoImg() { return enemyBossTorpedoImg;
+  }'
+methods_11_method_name: eu.hansolo.spacefx.Level1.getEnemyBossTorpedoImg
+methods_11_parameters: ''
+methods_11_return value: Image enemyBossTorpedoImg
+methods_12_code: '@Override public Image getEnemyBossRocketImg() { return enemyBossRocketImg;
+  }'
+methods_12_method_name: eu.hansolo.spacefx.Level1.getEnemyBossRocketImg
+methods_12_parameters: ''
+methods_12_return value: Image enemyBossRocketImg
+methods_13_code: '@Override public Image getExplosionImg() { return explosionImg;
+  }'
+methods_13_method_name: eu.hansolo.spacefx.Level1.getExplosionImg
+methods_13_parameters: ''
+methods_13_return value: Image explosionImg
+methods_14_code: '@Override public Image getEnemyBossHitImg() { return enemyBossHitImg;
+  }'
+methods_14_method_name: eu.hansolo.spacefx.Level1.getEnemyBossHitImg
+methods_14_parameters: ''
+methods_14_return value: Image enemyBossHitImg
+methods_15_code: '@Override public Image getEnemyBossExplosionImg() { return enemyBossExplosionImg;
+  }'
+methods_15_method_name: eu.hansolo.spacefx.Level1.getEnemyBossExplosionImg
+methods_15_parameters: ''
+methods_15_return value: Image enemyBossExplosionImg
+methods_16_code: '@Override public Image getEnemyRocketExplosionImg() { return enemyRocketExplosionImg;
+  }'
+methods_16_method_name: eu.hansolo.spacefx.Level1.getEnemyRocketExplosionImg
+methods_16_parameters: ''
+methods_16_return value: Image enemyRocketExplosionImg
+methods_17_code: '@Override public Image getLevelBossImg() { return levelBossImg;
+  }'
+methods_17_method_name: eu.hansolo.spacefx.Level1.getLevelBossImg
+methods_17_parameters: ''
+methods_17_return value: Image levelBossImg
+methods_18_code: '@Override public Image getLevelBossTorpedoImg() { return levelBossTorpedoImg;
+  }'
+methods_18_method_name: eu.hansolo.spacefx.Level1.getLevelBossTorpedoImg
+methods_18_parameters: ''
+methods_18_return value: Image levelBossTorpedoImg
+methods_19_code: '@Override public Image getLevelBossRocketImg() { return levelBossRocketImg;
+  }'
+methods_19_method_name: eu.hansolo.spacefx.Level1.getLevelBossRocketImg
+methods_19_parameters: ''
+methods_19_return value: Image levelBossRocketImg
+methods_1_code: '@Override public Difficulty getDifficulty() { return difficulty;
+  }'
+methods_1_method_name: eu.hansolo.spacefx.Level1.getDifficulty
+methods_1_parameters: ''
+methods_1_return value: Difficulty difficulty
+methods_20_code: '@Override public Image getLevelBossBombImg() { return levelBossBombImg;
+  }'
+methods_20_method_name: eu.hansolo.spacefx.Level1.getLevelBossBombImg
+methods_20_parameters: ''
+methods_20_return value: Image levelBossBombImg
+methods_21_code: '@Override public Image getLevelBossExplosionImg() { return levelBossExplosionImg;
+  }'
+methods_21_method_name: eu.hansolo.spacefx.Level1.getLevelBossExplosionImg
+methods_21_parameters: ''
+methods_21_return value: Image levelBossExplosionImg
+methods_2_code: '@Override public Image getBackgroundImg() { return backgroundImg;
+  }'
+methods_2_method_name: eu.hansolo.spacefx.Level1.getBackgroundImg
+methods_2_parameters: ''
+methods_2_return value: Image backgroundImg
+methods_3_code: '@Override public Image[] getEnemyImages() { return enemyImages; }'
+methods_3_method_name: eu.hansolo.spacefx.Level1.getEnemyImages
+methods_3_parameters: ''
+methods_3_return value: Image[] enemyImages
+methods_4_code: '@Override public Image getEnemyBossImg0() { return enemyBossImg0;
+  }'
+methods_4_method_name: eu.hansolo.spacefx.Level1.getEnemyBossImg0
+methods_4_parameters: ''
+methods_4_return value: Image enemyBossImg0
+methods_5_code: '@Override public Image getEnemyBossImg1() { return enemyBossImg1;
+  }'
+methods_5_method_name: eu.hansolo.spacefx.Level1.getEnemyBossImg1
+methods_5_parameters: ''
+methods_5_return value: Image enemyBossImg1
+methods_6_code: '@Override public Image getEnemyBossImg2() { return enemyBossImg2;
+  }'
+methods_6_method_name: eu.hansolo.spacefx.Level1.getEnemyBossImg2
+methods_6_parameters: ''
+methods_6_return value: Image enemyBossImg2
+methods_7_code: '@Override public Image getEnemyBossImg3() { return enemyBossImg3;
+  }'
+methods_7_method_name: eu.hansolo.spacefx.Level1.getEnemyBossImg3
+methods_7_parameters: ''
+methods_7_return value: Image enemyBossImg3
+methods_8_code: '@Override public Image getEnemyBossImg4() { return enemyBossImg4;
+  }'
+methods_8_method_name: eu.hansolo.spacefx.Level1.getEnemyBossImg4
+methods_8_parameters: ''
+methods_8_return value: Image enemyBossImg4
+methods_9_code: '@Override public Image getEnemyBombImg() { return enemyBombImg; }'
+methods_9_method_name: eu.hansolo.spacefx.Level1.getEnemyBombImg
+methods_9_parameters: ''
+methods_9_return value: Image enemyBombImg
+package: eu.hansolo.spacefx
+purpose: Implementation of the Level interface for level 1

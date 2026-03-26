@@ -1,1 +1,12 @@
-{"file_path": "src/main/java/eu/hansolo/spacefx/Fonts.java", "git_repo": "https://github.com/agapebondservant/spacefx-sample-javafx.git", "language": "java", "purpose": "Provides a utility class for loading and using custom fonts in the application", "package": "eu.hansolo.spacefx", "imports.0": "javafx.scene.text.Font", "classes.0": "eu.hansolo.spacefx.Fonts", "methods.0.method_name": "eu.hansolo.spacefx.Fonts.spaceBoy", "methods.0.code": "public static final Font spaceBoy(final double size) { return new Font(SPACE_BOY, size); }", "methods.0.parameters": "size: double", "methods.0.return value": "Font object with the specified size"}
+classes_0: eu.hansolo.spacefx.Fonts
+file_path: src/main/java/eu/hansolo/spacefx/Fonts.java
+git_repo: https://github.com/agapebondservant/spacefx-sample-javafx.git
+imports_0: javafx.scene.text.Font
+language: java
+methods_0_code: public static final Font spaceBoy(final double size) { return new
+  Font(SPACE_BOY, size); }
+methods_0_method_name: eu.hansolo.spacefx.Fonts.spaceBoy
+methods_0_parameters: 'size: double'
+methods_0_return value: Font object with the specified size
+package: eu.hansolo.spacefx
+purpose: Provides a utility class for loading and using custom fonts in the application

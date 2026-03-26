@@ -2,13 +2,13 @@
 
  Package: eu.hansolo.spacefx
 
- Purpose: Launcher class for the SpaceFX application
+ Purpose: Launcher class to start the SpaceFX application
 
  Classes:
 - eu.hansolo.spacefx.Launcher
 
  Methods:
-- {'method_name': 'eu.hansolo.spacefx.Launcher.main', 'code': 'public static void main(String[] args) {\n        SpaceFX.main(args);\n    }', 'callees': ['eu.hansolo.spacefx.SpaceFX.main'], 'parameters': 'String[] args', 'return value': 'void', 'exceptions': []}*/
+- {'method_name': 'eu.hansolo.spacefx.Launcher.main', 'code': 'public static void main(String[] args) {\n        SpaceFX.main(args);\n    }', 'callees': ['eu.hansolo.spacefx.SpaceFX.main'], 'parameters': 'args: String[]', 'return value': 'void', 'exceptions': []}*/
 /*
  * Copyright (c) 2019 by Gerrit Grunwald
  *

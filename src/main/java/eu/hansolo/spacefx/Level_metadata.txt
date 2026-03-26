@@ -1,1 +1,96 @@
-{"file_path": "src/main/java/eu/hansolo/spacefx/Level.java", "git_repo": "https://github.com/agapebondservant/spacefx-sample-javafx.git", "language": "java", "purpose": "Defines an interface for a level in the game, providing methods to access level-related images and difficulty", "package": "eu.hansolo.spacefx", "imports.0": "javafx.scene.image.Image", "classes.0": "eu.hansolo.spacefx.Level", "classes.1": "eu.hansolo.spacefx.Difficulty", "methods.0.method_name": "eu.hansolo.spacefx.Level.getIndex", "methods.0.code": "int getIndex();", "methods.0.parameters": "", "methods.0.return value": "int", "methods.1.method_name": "eu.hansolo.spacefx.Level.getDifficulty", "methods.1.code": "Difficulty getDifficulty();", "methods.1.parameters": "", "methods.1.return value": "Difficulty", "methods.2.method_name": "eu.hansolo.spacefx.Level.getBackgroundImg", "methods.2.code": "Image getBackgroundImg();", "methods.2.parameters": "", "methods.2.return value": "Image", "methods.3.method_name": "eu.hansolo.spacefx.Level.getEnemyImages", "methods.3.code": "Image[] getEnemyImages();", "methods.3.parameters": "", "methods.3.return value": "Image[]", "methods.4.method_name": "eu.hansolo.spacefx.Level.getEnemyBossImg0", "methods.4.code": "Image getEnemyBossImg0();", "methods.4.parameters": "", "methods.4.return value": "Image", "methods.5.method_name": "eu.hansolo.spacefx.Level.getEnemyBossImg1", "methods.5.code": "Image getEnemyBossImg1();", "methods.5.parameters": "", "methods.5.return value": "Image", "methods.6.method_name": "eu.hansolo.spacefx.Level.getEnemyBossImg2", "methods.6.code": "Image getEnemyBossImg2();", "methods.6.parameters": "", "methods.6.return value": "Image", "methods.7.method_name": "eu.hansolo.spacefx.Level.getEnemyBossImg3", "methods.7.code": "Image getEnemyBossImg3();", "methods.7.parameters": "", "methods.7.return value": "Image", "methods.8.method_name": "eu.hansolo.spacefx.Level.getEnemyBossImg4", "methods.8.code": "Image getEnemyBossImg4();", "methods.8.parameters": "", "methods.8.return value": "Image", "methods.9.method_name": "eu.hansolo.spacefx.Level.getEnemyBombImg", "methods.9.code": "Image getEnemyBombImg();", "methods.9.parameters": "", "methods.9.return value": "Image", "methods.10.method_name": "eu.hansolo.spacefx.Level.getEnemyTorpedoImg", "methods.10.code": "Image getEnemyTorpedoImg();", "methods.10.parameters": "", "methods.10.return value": "Image", "methods.11.method_name": "eu.hansolo.spacefx.Level.getEnemyBossTorpedoImg", "methods.11.code": "Image getEnemyBossTorpedoImg();", "methods.11.parameters": "", "methods.11.return value": "Image", "methods.12.method_name": "eu.hansolo.spacefx.Level.getEnemyBossRocketImg", "methods.12.code": "Image getEnemyBossRocketImg();", "methods.12.parameters": "", "methods.12.return value": "Image", "methods.13.method_name": "eu.hansolo.spacefx.Level.getExplosionImg", "methods.13.code": "Image getExplosionImg();", "methods.13.parameters": "", "methods.13.return value": "Image", "methods.14.method_name": "eu.hansolo.spacefx.Level.getEnemyBossHitImg", "methods.14.code": "Image getEnemyBossHitImg();", "methods.14.parameters": "", "methods.14.return value": "Image", "methods.15.method_name": "eu.hansolo.spacefx.Level.getEnemyBossExplosionImg", "methods.15.code": "Image getEnemyBossExplosionImg();", "methods.15.parameters": "", "methods.15.return value": "Image", "methods.16.method_name": "eu.hansolo.spacefx.Level.getEnemyRocketExplosionImg", "methods.16.code": "Image getEnemyRocketExplosionImg();", "methods.16.parameters": "", "methods.16.return value": "Image", "methods.17.method_name": "eu.hansolo.spacefx.Level.getLevelBossImg", "methods.17.code": "Image getLevelBossImg();", "methods.17.parameters": "", "methods.17.return value": "Image", "methods.18.method_name": "eu.hansolo.spacefx.Level.getLevelBossTorpedoImg", "methods.18.code": "Image getLevelBossTorpedoImg();", "methods.18.parameters": "", "methods.18.return value": "Image", "methods.19.method_name": "eu.hansolo.spacefx.Level.getLevelBossRocketImg", "methods.19.code": "Image getLevelBossRocketImg();", "methods.19.parameters": "", "methods.19.return value": "Image", "methods.20.method_name": "eu.hansolo.spacefx.Level.getLevelBossBombImg", "methods.20.code": "Image getLevelBossBombImg();", "methods.20.parameters": "", "methods.20.return value": "Image", "methods.21.method_name": "eu.hansolo.spacefx.Level.getLevelBossExplosionImg", "methods.21.code": "Image getLevelBossExplosionImg();", "methods.21.parameters": "", "methods.21.return value": "Image"}
+classes_0: eu.hansolo.spacefx.Level
+file_path: src/main/java/eu/hansolo/spacefx/Level.java
+git_repo: https://github.com/agapebondservant/spacefx-sample-javafx.git
+imports_0: javafx.scene.image.Image
+language: java
+methods_0_code: int getIndex();
+methods_0_method_name: eu.hansolo.spacefx.Level.getIndex
+methods_0_parameters: ''
+methods_0_return value: 'The index of the level, type: int'
+methods_10_code: Image getEnemyTorpedoImg();
+methods_10_method_name: eu.hansolo.spacefx.Level.getEnemyTorpedoImg
+methods_10_parameters: ''
+methods_10_return value: 'The image of enemy torpedo, type: Image'
+methods_11_code: Image getEnemyBossTorpedoImg();
+methods_11_method_name: eu.hansolo.spacefx.Level.getEnemyBossTorpedoImg
+methods_11_parameters: ''
+methods_11_return value: 'The image of enemy boss torpedo, type: Image'
+methods_12_code: Image getEnemyBossRocketImg();
+methods_12_method_name: eu.hansolo.spacefx.Level.getEnemyBossRocketImg
+methods_12_parameters: ''
+methods_12_return value: 'The image of enemy boss rocket, type: Image'
+methods_13_code: Image getExplosionImg();
+methods_13_method_name: eu.hansolo.spacefx.Level.getExplosionImg
+methods_13_parameters: ''
+methods_13_return value: 'The image of explosion, type: Image'
+methods_14_code: Image getEnemyBossHitImg();
+methods_14_method_name: eu.hansolo.spacefx.Level.getEnemyBossHitImg
+methods_14_parameters: ''
+methods_14_return value: 'The image of enemy boss hit, type: Image'
+methods_15_code: Image getEnemyBossExplosionImg();
+methods_15_method_name: eu.hansolo.spacefx.Level.getEnemyBossExplosionImg
+methods_15_parameters: ''
+methods_15_return value: 'The image of enemy boss explosion, type: Image'
+methods_16_code: Image getEnemyRocketExplosionImg();
+methods_16_method_name: eu.hansolo.spacefx.Level.getEnemyRocketExplosionImg
+methods_16_parameters: ''
+methods_16_return value: 'The image of enemy rocket explosion, type: Image'
+methods_17_code: Image getLevelBossImg();
+methods_17_method_name: eu.hansolo.spacefx.Level.getLevelBossImg
+methods_17_parameters: ''
+methods_17_return value: 'The image of level boss, type: Image'
+methods_18_code: Image getLevelBossTorpedoImg();
+methods_18_method_name: eu.hansolo.spacefx.Level.getLevelBossTorpedoImg
+methods_18_parameters: ''
+methods_18_return value: 'The image of level boss torpedo, type: Image'
+methods_19_code: Image getLevelBossRocketImg();
+methods_19_method_name: eu.hansolo.spacefx.Level.getLevelBossRocketImg
+methods_19_parameters: ''
+methods_19_return value: 'The image of level boss rocket, type: Image'
+methods_1_code: Difficulty getDifficulty();
+methods_1_method_name: eu.hansolo.spacefx.Level.getDifficulty
+methods_1_parameters: ''
+methods_1_return value: 'The difficulty of the level, type: Difficulty'
+methods_20_code: Image getLevelBossBombImg();
+methods_20_method_name: eu.hansolo.spacefx.Level.getLevelBossBombImg
+methods_20_parameters: ''
+methods_20_return value: 'The image of level boss bomb, type: Image'
+methods_21_code: Image getLevelBossExplosionImg();
+methods_21_method_name: eu.hansolo.spacefx.Level.getLevelBossExplosionImg
+methods_21_parameters: ''
+methods_21_return value: 'The image of level boss explosion, type: Image'
+methods_2_code: Image getBackgroundImg();
+methods_2_method_name: eu.hansolo.spacefx.Level.getBackgroundImg
+methods_2_parameters: ''
+methods_2_return value: 'The background image of the level, type: Image'
+methods_3_code: Image[] getEnemyImages();
+methods_3_method_name: eu.hansolo.spacefx.Level.getEnemyImages
+methods_3_parameters: ''
+methods_3_return value: 'An array of enemy images, type: Image[]'
+methods_4_code: Image getEnemyBossImg0();
+methods_4_method_name: eu.hansolo.spacefx.Level.getEnemyBossImg0
+methods_4_parameters: ''
+methods_4_return value: 'The image of enemy boss 0, type: Image'
+methods_5_code: Image getEnemyBossImg1();
+methods_5_method_name: eu.hansolo.spacefx.Level.getEnemyBossImg1
+methods_5_parameters: ''
+methods_5_return value: 'The image of enemy boss 1, type: Image'
+methods_6_code: Image getEnemyBossImg2();
+methods_6_method_name: eu.hansolo.spacefx.Level.getEnemyBossImg2
+methods_6_parameters: ''
+methods_6_return value: 'The image of enemy boss 2, type: Image'
+methods_7_code: Image getEnemyBossImg3();
+methods_7_method_name: eu.hansolo.spacefx.Level.getEnemyBossImg3
+methods_7_parameters: ''
+methods_7_return value: 'The image of enemy boss 3, type: Image'
+methods_8_code: Image getEnemyBossImg4();
+methods_8_method_name: eu.hansolo.spacefx.Level.getEnemyBossImg4
+methods_8_parameters: ''
+methods_8_return value: 'The image of enemy boss 4, type: Image'
+methods_9_code: Image getEnemyBombImg();
+methods_9_method_name: eu.hansolo.spacefx.Level.getEnemyBombImg
+methods_9_parameters: ''
+methods_9_return value: 'The image of enemy bomb, type: Image'
+package: eu.hansolo.spacefx
+purpose: Defines an interface for a level in the game, providing methods to access
+  various level-related images and difficulty settings.

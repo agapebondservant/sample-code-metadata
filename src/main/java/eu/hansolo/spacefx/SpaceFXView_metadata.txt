@@ -1,1 +1,381 @@
-{"file_path": "src/main/java/eu/hansolo/spacefx/SpaceFXView.java", "git_repo": "https://github.com/agapebondservant/spacefx-sample-javafx.git", "language": "java", "purpose": "A JavaFX view for the SpaceFX game, handling game logic, rendering, and user input.", "package": "eu.hansolo.spacefx", "imports.0": "com.jpro.webapi.WebAPI", "imports.1": "javafx.animation.AnimationTimer", "imports.2": "javafx.animation.PauseTransition", "imports.3": "javafx.application.Platform", "imports.4": "javafx.concurrent.Task", "imports.5": "javafx.event.EventHandler", "imports.6": "javafx.event.EventType", "imports.7": "javafx.geometry.Insets", "imports.8": "javafx.geometry.Pos", "imports.9": "javafx.geometry.VPos", "imports.10": "javafx.scene.canvas.Canvas", "imports.11": "javafx.scene.canvas.GraphicsContext", "imports.12": "javafx.scene.control.Button", "imports.13": "javafx.scene.control.Label", "imports.14": "javafx.scene.control.ToggleGroup", "imports.15": "javafx.scene.image.Image", "imports.16": "javafx.scene.input.TouchEvent", "imports.17": "javafx.scene.layout.Background", "imports.18": "javafx.scene.layout.BackgroundFill", "imports.19": "javafx.scene.layout.CornerRadii", "imports.20": "javafx.scene.layout.HBox", "imports.21": "javafx.scene.layout.Pane", "imports.22": "javafx.scene.layout.Priority", "imports.23": "javafx.scene.layout.Region", "imports.24": "javafx.scene.layout.StackPane", "imports.25": "javafx.scene.layout.VBox", "imports.26": "javafx.scene.media.AudioClip", "imports.27": "javafx.scene.media.Media", "imports.28": "javafx.scene.media.MediaPlayer", "imports.29": "javafx.scene.paint.Color", "imports.30": "javafx.scene.shape.Circle", "imports.31": "javafx.scene.text.Font", "imports.32": "javafx.scene.text.TextAlignment", "imports.33": "javafx.util.Duration", "imports.34": "java.util.ArrayList", "imports.35": "java.util.Collections", "imports.36": "java.util.List", "imports.37": "java.util.Properties", "imports.38": "java.util.Random", "imports.39": "java.util.UUID", "imports.40": "java.util.stream.Collectors", "imports.41": "eu.hansolo.spacefx.Config.*", "classes.0": "eu.hansolo.spacefx.SpaceFXView", "classes.1": "eu.hansolo.spacefx.SpaceFXView$Sprite", "classes.2": "eu.hansolo.spacefx.SpaceFXView$AnimatedSprite", "classes.3": "eu.hansolo.spacefx.SpaceFXView$Bonus", "classes.4": "eu.hansolo.spacefx.SpaceFXView$Star", "classes.5": "eu.hansolo.spacefx.SpaceFXView$Player", "classes.6": "eu.hansolo.spacefx.SpaceFXView$Wave", "classes.7": "eu.hansolo.spacefx.SpaceFXView$SpaceShip", "classes.8": "eu.hansolo.spacefx.SpaceFXView$Asteroid", "classes.9": "eu.hansolo.spacefx.SpaceFXView$Torpedo", "classes.10": "eu.hansolo.spacefx.SpaceFXView$BigTorpedo", "classes.11": "eu.hansolo.spacefx.SpaceFXView$Rocket", "classes.12": "eu.hansolo.spacefx.SpaceFXView$Enemy", "classes.13": "eu.hansolo.spacefx.SpaceFXView$EnemyTorpedo", "classes.14": "eu.hansolo.spacefx.SpaceFXView$EnemyBomb", "classes.15": "eu.hansolo.spacefx.SpaceFXView$EnemyBoss", "classes.16": "eu.hansolo.spacefx.SpaceFXView$EnemyBossTorpedo", "classes.17": "eu.hansolo.spacefx.SpaceFXView$EnemyBossRocket", "classes.18": "eu.hansolo.spacefx.SpaceFXView$LevelBoss", "classes.19": "eu.hansolo.spacefx.SpaceFXView$LevelBossTorpedo", "classes.20": "eu.hansolo.spacefx.SpaceFXView$LevelBossRocket", "classes.21": "eu.hansolo.spacefx.SpaceFXView$LevelBossBomb", "classes.22": "eu.hansolo.spacefx.SpaceFXView$EnemyRocketExplosion", "classes.23": "eu.hansolo.spacefx.SpaceFXView$AsteroidExplosion", "classes.24": "eu.hansolo.spacefx.SpaceFXView$Explosion", "classes.25": "eu.hansolo.spacefx.SpaceFXView$EnemyBossExplosion", "classes.26": "eu.hansolo.spacefx.SpaceFXView$LevelBossExplosion", "classes.27": "eu.hansolo.spacefx.SpaceFXView$UpExplosion", "classes.28": "eu.hansolo.spacefx.SpaceFXView$SpaceShipExplosion", "classes.29": "eu.hansolo.spacefx.SpaceFXView$RocketExplosion", "classes.30": "eu.hansolo.spacefx.SpaceFXView$Hit", "classes.31": "eu.hansolo.spacefx.SpaceFXView$EnemyHit", "classes.32": "eu.hansolo.spacefx.SpaceFXView$ShieldUp", "classes.33": "eu.hansolo.spacefx.SpaceFXView$LifeUp", "classes.34": "eu.hansolo.spacefx.SpaceFXView$BigTorpedoBonus", "classes.35": "eu.hansolo.spacefx.SpaceFXView$StarburstBonus", "methods.0.method_name": "eu.hansolo.spacefx.SpaceFXView#SpaceFXView()", "methods.0.code": "public SpaceFXView() {\n        init();\n        initOnBackground();\n\n        Pane pane = new Pane(canvas, shipTouchArea, hallOfFameBox, playerInitialsLabel, playerInitialsDigits, saveInitialsButton);\n        pane.setPrefSize(WIDTH, HEIGHT);\n        pane.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));\n\n        if (SHOW_BUTTONS) {\n            canvas.addEventHandler(TouchEvent.TOUCH_PRESSED, touchHandler);\n            shipTouchArea.setOnTouchMoved(e -> {\n                spaceShip.x = e.getTouchPoint().getX();\n                spaceShip.y = e.getTouchPoint().getY();\n            });\n        } else {\n            shipTouchArea.setOnMouseDragged(e -> {\n                spaceShip.x = e.getX();\n                spaceShip.y = e.getY();\n            });\n        }\n\n        saveInitialsButton.setOnAction(e -> storePlayer());\n\n        setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));\n        getChildren().add(pane);\n\n        // Start playing background music\n        if (PLAY_MUSIC) { mediaPlayer.play(); }\n\n        // Start timer to toggle between start screen and hall of fame\n        screenTimer.start();\n    }", "methods.0.callees.0": "eu.hansolo.spacefx.SpaceFXView#init()", "methods.0.callees.1": "eu.hansolo.spacefx.SpaceFXView#initOnBackground()", "methods.0.callees.2": "javafx.scene.layout.Pane#Pane(javafx.scene.Node[])", "methods.0.callees.3": "javafx.scene.layout.Pane#setPrefSize(double, double)", "methods.0.callees.4": "javafx.scene.layout.Pane#setBackground(javafx.scene.layout.Background)", "methods.0.callees.5": "javafx.scene.input.TouchEvent#TOUCH_PRESSED", "methods.0.callees.6": "eu.hansolo.spacefx.SpaceFXView$1#handle(javafx.scene.input.TouchEvent)", "methods.0.callees.7": "javafx.scene.Node#addEventHandler(javafx.event.EventType, javafx.event.EventHandler)", "methods.0.callees.8": "javafx.scene.Node#setOnTouchMoved(javafx.event.EventHandler)", "methods.0.callees.9": "javafx.scene.Node#setOnMouseDragged(javafx.event.EventHandler)", "methods.0.callees.10": "javafx.scene.control.Button#setOnAction(javafx.event.EventHandler)", "methods.0.callees.11": "eu.hansolo.spacefx.SpaceFXView#storePlayer()", "methods.0.callees.12": "javafx.scene.layout.StackPane#setBackground(javafx.scene.layout.Background)", "methods.0.callees.13": "javafx.scene.Parent#getChildren()", "methods.0.callees.14": "javafx.collections.ObservableList#add(javafx.scene.Node)", "methods.0.callees.15": "javafx.scene.media.MediaPlayer#play()", "methods.0.callees.16": "javafx.animation.AnimationTimer#start()", "methods.0.parameters": "", "methods.0.return value": "", "methods.1.method_name": "eu.hansolo.spacefx.SpaceFXView#init()", "methods.1.code": "public void init() {\n        scoreFont        = Fonts.spaceBoy(SCORE_FONT_SIZE);\n        running          = false;\n        gameOverScreen   = false;\n        levelBossActive  = false;\n        lastScreenToggle = System.nanoTime();\n        hallOfFameScreen = false;\n\n        playerInitialsLabel = new Label(\"Type in your initials\");\n        playerInitialsLabel.setAlignment(Pos.CENTER);\n        playerInitialsLabel.setPrefWidth(WIDTH);\n        Helper.enableNode(playerInitialsLabel, false);\n\n        digit1 = new InitialDigit();\n        digit2 = new InitialDigit();\n        ToggleGroup toggleGroup = new ToggleGroup();\n        digit1.setToggleGroup(toggleGroup);\n        digit2.setToggleGroup(toggleGroup);\n        digit1.setSelected(true);\n        playerInitialsDigits = new HBox(0, digit1, digit2);\n        Helper.enableNode(playerInitialsDigits, false);\n\n        saveInitialsButton = new Button(\"Save Initials\");\n        saveInitialsButton.setPrefWidth(WIDTH * 0.6);\n        Helper.enableNode(saveInitialsButton, false);\n\n        // PreFill hall of fame\n        properties = PropertyManager.INSTANCE.getProperties();\n\n        Player p1 = new Player(properties.getProperty(\"hallOfFame1\"));\n        Player p2 = new Player(properties.getProperty(\"hallOfFame2\"));\n        Player p3 = new Player(properties.getProperty(\"hallOfFame3\"));\n\n        hallOfFame = new ArrayList<>(3);\n        hallOfFame.add(p1);\n        hallOfFame.add(p2);\n        hallOfFame.add(p3);\n\n        HBox p1Entry  = createHallOfFameEntry(p1);\n        HBox p2Entry  = createHallOfFameEntry(p2);\n        HBox p3Entry  = createHallOfFameEntry(p3);\n        hallOfFameBox = new VBox(20, p1Entry, p2Entry, p3Entry);\n        hallOfFameBox.setPrefWidth(WIDTH * 0.6);\n        hallOfFameBox.setAlignment(Pos.CENTER);\n        hallOfFameBox.setTranslateY(-HEIGHT * 0.1);\n        hallOfFameBox.setMouseTransparent(true);\n        hallOfFameBox.relocate((WIDTH - hallOfFameBox.getPrefWidth()) * 0.5, (HEIGHT - hallOfFameBox.getPrefHeight()) * 0.5);\n        Helper.enableNode(hallOfFameBox, false);\n\n        // Mediaplayer for background music\n        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);\n        mediaPlayer.setVolume(0.2);\n\n        // Mediaplayer for game background music\n        gameMediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);\n        gameMediaPlayer.setVolume(0.5);\n\n        // Variable initialization\n        backgroundViewportY           = SWITCH_POINT;\n        canvas                        = new Canvas(WIDTH, HEIGHT);\n        ctx                           = canvas.getGraphicsContext2D();\n        stars                         = new Star[NO_OF_STARS];\n        asteroids                     = new Asteroid[NO_OF_ASTEROIDS];\n        spaceShipExplosion            = new SpaceShipExplosion(0, 0, 0, 0);\n        waves                         = new ArrayList<>();\n        wavesToRemove                 = new ArrayList<>();\n        enemyBosses                   = new ArrayList<>();\n        levelBosses                   = new ArrayList<>();\n        bonuses                       = new ArrayList<>();\n        rockets                       = new ArrayList<>();\n        torpedos                      = new ArrayList<>();\n        bigTorpedos                   = new ArrayList<>();\n        enemyRocketExplosions         = new ArrayList<>();\n        explosions                    = new ArrayList<>();\n        asteroidExplosions            = new ArrayList<>();\n        upExplosions                  = new ArrayList<>();\n        enemyTorpedos                 = new ArrayList<>();\n        enemyBombs                    = new ArrayList<>();\n        enemyBossTorpedos             = new ArrayList<>();\n        enemyBossRockets              = new ArrayList<>();\n        levelBossTorpedos             = new ArrayList<>();\n        levelBossRockets              = new ArrayList<>();\n        levelBossBombs                = new ArrayList<>();\n        levelBossExplosions           = new ArrayList<>();\n        enemyBossExplosions           = new ArrayList<>();\n        rocketExplosions              = new ArrayList<>();\n        hits                          = new ArrayList<>();\n        enemyHits                     = new ArrayList<>();\n        score                         = 0;\n        levelKills                    = 0;\n        kills                         = 0;\n        hasBeenHit                    = false;\n        noOfLifes                     = NO_OF_LIFES;\n        noOfShields                   = NO_OF_SHIELDS;\n        bigTorpedosEnabled            = false;\n        starburstEnabled              = false;\n        lastShieldActivated           = 0;\n        lastEnemyBossAttack           = System.nanoTime();\n        lastShieldUp                  = System.nanoTime();\n        lastLifeUp                    = System.nanoTime();\n        lastWave                      = System.nanoTime();\n        lastTorpedoFired              = System.nanoTime();\n        lastStarBlast                 = System.nanoTime();\n        lastBigTorpedoBonus           = System.nanoTime();\n        lastStarburstBonus            = System.nanoTime();\n        //long deltaTime                = FPS_60;\n        long deltaTime                = IS_BROWSER ? FPS_30 : FPS_60;\n        timer = new AnimationTimer() {\n            @Override public void handle(final long now) {\n                if (now > lastTimerCall) {\n                    lastTimerCall = now + deltaTime;\n                    updateAndDraw();\n                }\n                if (now > lastEnemyBossAttack + ENEMY_BOSS_ATTACK_INTERVAL) {\n                    spawnEnemyBoss(spaceShip);\n                    lastEnemyBossAttack = now;\n                }\n                if (now > lastShieldUp + SHIELD_UP_SPAWN_INTERVAL && noOfShields < NO_OF_SHIELDS) {\n                    spawnShieldUp();\n                    lastShieldUp = now;\n                }\n                if (now > lastLifeUp + LIFE_UP_SPAWN_INTERVAL && noOfLifes < NO_OF_LIFES) {\n                    spawnLifeUp();\n                    lastLifeUp = now;\n                }\n                if (now > lastWave + WAVE_SPAWN_INTERVAL && SHOW_ENEMIES) {\n                    spawnWave();\n                    lastWave = now;\n                }\n                if (now > lastBigTorpedoBonus + BIG_TORPEDO_BONUS_INTERVAL) {\n                    spawnBigTorpedoBonus();\n                    lastBigTorpedoBonus = now;\n                }\n                if (now > lastStarburstBonus + STARBURST_BONUS_INTERVAL) {\n                    spawnStarburstBonus();\n                    lastStarburstBonus = now;\n                }\n            }\n        };\n        screenTimer = new AnimationTimer() {\n            @Override public void handle(final long now) {\n                if (!running && now > lastScreenToggle + SCREEN_TOGGLE_INTERVAL) {\n                    if (hallOfFameScreen) {\n                        ctx.drawImage(hallOfFameImg, 0, 0, WIDTH, HEIGHT);\n                        Helper.enableNode(hallOfFameBox, true);\n                    } else {\n                        ctx.drawImage(startImg, 0, 0, WIDTH, HEIGHT);\n                        Helper.enableNode(hallOfFameBox, false);\n                    }\n                    hallOfFameScreen = !hallOfFameScreen;\n                    lastScreenToggle = now;\n                }\n            }\n        };\n\n        shipTouchArea = new Circle();\n\n        touchHandler = e -> {\n            EventType<TouchEvent>  type  = e.getEventType();\n            if (TouchEvent.TOUCH_PRESSED.equals(type)) {\n                if (SHOW_BUTTONS) {\n                    double x = e.getTouchPoint().getX();\n                    double y = e.getTouchPoint().getY();\n                    if (Helper.isInsideCircle(TORPEDO_BUTTON_CX, TORPEDO_BUTTON_CY, TORPEDO_BUTTON_R, x, y)) {\n                        spawnWeapon(spaceShip.x, spaceShip.y);\n                    } else if (Helper.isInsideCircle(ROCKET_BUTTON_CX, ROCKET_BUTTON_CY, ROCKET_BUTTON_R, x, y)) {\n                        if (rockets.size() < MAX_NO_OF_ROCKETS) {\n                            spawnRocket(spaceShip.x, spaceShip.y);\n                        }\n                    } else if (Helper.isInsideCircle(SHIELD_BUTTON_CX, SHIELD_BUTTON_CY, SHIELD_BUTTON_R, x, y)) {\n                        if (noOfShields > 0 && !spaceShip.shield) {\n                            lastShieldActivated = System.nanoTime();\n                            spaceShip.shield = true;\n                            playSound(deflectorShieldSound);\n                        }\n                    }\n                }\n            }\n        };\n\n        initStars();\n\n        scorePosX = WIDTH * 0.5;\n        scorePosY = 40 * SCALING_FACTOR;\n\n        //mobileOffsetY = isIOS() ? 30 : 0;\n        mobileOffsetY = 0;\n\n        // Preparing GraphicsContext\n        ctx.setFont(scoreFont);\n        ctx.setTextAlign(TextAlignment.CENTER);\n        ctx.setTextBaseline(VPos.CENTER);\n        ctx.drawImage(startImg, 0, 0, WIDTH, HEIGHT);\n    }", "methods.1.callees.0": "eu.hansolo.spacefx.Fonts#spaceBoy(double)", "methods.1.callees.1": "javafx.scene.control.Label#Label(java.lang.String)", "methods.1.callees.2": "javafx.scene.control.Labeled#setAlignment(javafx.geometry.Pos)", "methods.1.callees.3": "javafx.scene.control.Control#setPrefWidth(double)", "methods.1.callees.4": "eu.hansolo.spacefx.Helper#enableNode(javafx.scene.Node, boolean)", "methods.1.callees.5": "eu.hansolo.spacefx.SpaceFXView$InitialDigit#InitialDigit()", "methods.1.callees.6": "javafx.scene.control.ToggleGroup#ToggleGroup()", "methods.1.callees.7": "javafx.scene.control.ToggleButton#setToggleGroup(javafx.scene.control.ToggleGroup)", "methods.1.callees.8": "javafx.scene.control.ToggleButton#setSelected(boolean)", "methods.1.callees.9": "javafx.scene.layout.HBox#HBox(double, javafx.scene.Node[])", "methods.1.callees.10": "javafx.scene.control.Button#Button(java.lang.String)", "methods.1.callees.11": "eu.hansolo.spacefx.PropertyManager#INSTANCE", "methods.1.callees.12": "java.util.Properties#getProperty(java.lang.String)", "methods.1.callees.13": "eu.hansolo.spacefx.SpaceFXView$Player#Player(java.lang.String)", "methods.1.callees.14": "java.util.ArrayList#ArrayList(int)", "methods.1.callees.15": "java.util.List#add(java.lang.Object)", "methods.1.callees.16": "eu.hansolo.spacefx.SpaceFXView#createHallOfFameEntry(eu.hansolo.spacefx.SpaceFXView$Player)", "methods.1.callees.17": "javafx.scene.layout.VBox#VBox(double, javafx.scene.Node[])", "methods.1.callees.18": "javafx.scene.layout.Pane#setPrefWidth(double)", "methods.1.callees.19": "javafx.scene.layout.Pane#setAlignment(javafx.geometry.Pos)", "methods.1.callees.20": "javafx.scene.layout.Pane#setTranslateY(double)", "methods.1.callees.21": "javafx.scene.layout.Pane#setMouseTransparent(boolean)", "methods.1.callees.22": "javafx.scene.layout.Pane#relocate(double, double)", "methods.1.callees.23": "javafx.scene.media.MediaPlayer#setCycleCount(int)", "methods.1.callees.24": "javafx.scene.media.MediaPlayer#setVolume(double)", "methods.1.callees.25": "javafx.scene.canvas.Canvas#Canvas(double, double)", "methods.1.callees.26": "javafx.scene.canvas.Canvas#getGraphicsContext2D()", "methods.1.callees.27": "eu.hansolo.spacefx.SpaceFXView$Star#Star()", "methods.1.callees.28": "eu.hansolo.spacefx.SpaceFXView$Asteroid#Asteroid(javafx.scene.image.Image)", "methods.1.callees.29": "eu.hansolo.spacefx.SpaceFXView$SpaceShipExplosion#SpaceShipExplosion(double, double, double, double)", "methods.1.callees.30": "java.util.ArrayList#ArrayList()", "methods.1.callees.31": "javafx.animation.AnimationTimer#AnimationTimer()", "methods.1.callees.32": "javafx.animation.AnimationTimer#handle(long)", "methods.1.callees.33": "eu.hansolo.spacefx.SpaceFXView#updateAndDraw()", "methods.1.callees.34": "eu.hansolo.spacefx.SpaceFXView#spawnEnemyBoss(eu.hansolo.spacefx.SpaceFXView$SpaceShip)", "methods.1.callees.35": "eu.hansolo.spacefx.SpaceFXView#spawnShieldUp()", "methods.1.callees.36": "eu.hansolo.spacefx.SpaceFXView#spawnLifeUp()", "methods.1.callees.37": "eu.hansolo.spacefx.SpaceFXView#spawnWave()", "methods.1.callees.38": "eu.hansolo.spacefx.SpaceFXView#spawnBigTorpedoBonus()", "methods.1.callees.39": "eu.hansolo.spacefx.SpaceFXView#spawnStarburstBonus()", "methods.1.callees.40": "javafx.scene.shape.Circle#Circle()", "methods.1.callees.41": "javafx.scene.input.TouchEvent#getEventType()", "methods.1.callees.42": "javafx.event.EventType#equals(java.lang.Object)", "methods.1.callees.43": "eu.hansolo.spacefx.Helper#isInsideCircle(double, double, double, double, double)", "methods.1.callees.44": "eu.hansolo.spacefx.SpaceFXView#spawnWeapon(double, double)", "methods.1.callees.45": "eu.hansolo.spacefx.SpaceFXView#spawnRocket(double, double)", "methods.1.callees.46": "java.util.List#size()", "methods.1.callees.47": "javafx.scene.media.AudioClip#play()", "methods.1.callees.48": "eu.hansolo.spacefx.SpaceFXView#initStars()", "methods.1.callees.49": "javafx.scene.canvas.GraphicsContext#setFont(javafx.scene.text.Font)", "methods.1.callees.50": "javafx.scene.canvas.GraphicsContext#setTextAlign(javafx.scene.text.TextAlignment)", "methods.1.callees.51": "javafx.scene.canvas.GraphicsContext#setTextBaseline(javafx.scene.text.VPos)", "methods.1.callees.52": "javafx.scene.canvas.GraphicsContext#drawImage(javafx.scene.image.Image, double, double, double, double)", "methods.1.parameters": "", "methods.1.return value": ""}
+classes_0: eu.hansolo.spacefx.SpaceFXView
+classes_1: eu.hansolo.spacefx.SpaceFXView$Sprite
+classes_10: eu.hansolo.spacefx.SpaceFXView$BigTorpedo
+classes_11: eu.hansolo.spacefx.SpaceFXView$Rocket
+classes_12: eu.hansolo.spacefx.SpaceFXView$Enemy
+classes_13: eu.hansolo.spacefx.SpaceFXView$EnemyTorpedo
+classes_14: eu.hansolo.spacefx.SpaceFXView$EnemyBomb
+classes_15: eu.hansolo.spacefx.SpaceFXView$EnemyBoss
+classes_16: eu.hansolo.spacefx.SpaceFXView$EnemyBossTorpedo
+classes_17: eu.hansolo.spacefx.SpaceFXView$EnemyBossRocket
+classes_18: eu.hansolo.spacefx.SpaceFXView$LevelBoss
+classes_19: eu.hansolo.spacefx.SpaceFXView$LevelBossTorpedo
+classes_2: eu.hansolo.spacefx.SpaceFXView$AnimatedSprite
+classes_20: eu.hansolo.spacefx.SpaceFXView$LevelBossRocket
+classes_21: eu.hansolo.spacefx.SpaceFXView$LevelBossBomb
+classes_22: eu.hansolo.spacefx.SpaceFXView$EnemyRocketExplosion
+classes_23: eu.hansolo.spacefx.SpaceFXView$AsteroidExplosion
+classes_24: eu.hansolo.spacefx.SpaceFXView$Explosion
+classes_25: eu.hansolo.spacefx.SpaceFXView$EnemyBossExplosion
+classes_26: eu.hansolo.spacefx.SpaceFXView$LevelBossExplosion
+classes_27: eu.hansolo.spacefx.SpaceFXView$UpExplosion
+classes_28: eu.hansolo.spacefx.SpaceFXView$SpaceShipExplosion
+classes_29: eu.hansolo.spacefx.SpaceFXView$RocketExplosion
+classes_3: eu.hansolo.spacefx.SpaceFXView$Bonus
+classes_30: eu.hansolo.spacefx.SpaceFXView$Hit
+classes_31: eu.hansolo.spacefx.SpaceFXView$EnemyHit
+classes_32: eu.hansolo.spacefx.SpaceFXView$ShieldUp
+classes_33: eu.hansolo.spacefx.SpaceFXView$LifeUp
+classes_34: eu.hansolo.spacefx.SpaceFXView$BigTorpedoBonus
+classes_35: eu.hansolo.spacefx.SpaceFXView$StarburstBonus
+classes_4: eu.hansolo.spacefx.SpaceFXView$Star
+classes_5: eu.hansolo.spacefx.SpaceFXView$Player
+classes_6: eu.hansolo.spacefx.SpaceFXView$Wave
+classes_7: eu.hansolo.spacefx.SpaceFXView$SpaceShip
+classes_8: eu.hansolo.spacefx.SpaceFXView$Asteroid
+classes_9: eu.hansolo.spacefx.SpaceFXView$Torpedo
+file_path: src/main/java/eu/hansolo/spacefx/SpaceFXView.java
+git_repo: https://github.com/agapebondservant/spacefx-sample-javafx.git
+imports_0: com.jpro.webapi.WebAPI
+imports_1: javafx.animation.AnimationTimer
+imports_10: javafx.scene.canvas.Canvas
+imports_11: javafx.scene.canvas.GraphicsContext
+imports_12: javafx.scene.control.Button
+imports_13: javafx.scene.control.Label
+imports_14: javafx.scene.control.ToggleGroup
+imports_15: javafx.scene.image.Image
+imports_16: javafx.scene.input.TouchEvent
+imports_17: javafx.scene.layout.Background
+imports_18: javafx.scene.layout.BackgroundFill
+imports_19: javafx.scene.layout.CornerRadii
+imports_2: javafx.animation.PauseTransition
+imports_20: javafx.scene.layout.HBox
+imports_21: javafx.scene.layout.Pane
+imports_22: javafx.scene.layout.Priority
+imports_23: javafx.scene.layout.Region
+imports_24: javafx.scene.layout.StackPane
+imports_25: javafx.scene.layout.VBox
+imports_26: javafx.scene.media.AudioClip
+imports_27: javafx.scene.media.Media
+imports_28: javafx.scene.media.MediaPlayer
+imports_29: javafx.scene.paint.Color
+imports_3: javafx.application.Platform
+imports_30: javafx.scene.shape.Circle
+imports_31: javafx.scene.text.Font
+imports_32: javafx.scene.text.TextAlignment
+imports_33: javafx.util.Duration
+imports_34: java.util.ArrayList
+imports_35: java.util.Collections
+imports_36: java.util.List
+imports_37: java.util.Properties
+imports_38: java.util.Random
+imports_39: java.util.UUID
+imports_4: javafx.concurrent.Task
+imports_40: java.util.stream.Collectors
+imports_41: eu.hansolo.spacefx.Config.*
+imports_5: javafx.event.EventHandler
+imports_6: javafx.event.EventType
+imports_7: javafx.geometry.Insets
+imports_8: javafx.geometry.Pos
+imports_9: javafx.geometry.VPos
+language: java
+methods_0_callees_0: eu.hansolo.spacefx.SpaceFXView#init()
+methods_0_callees_1: eu.hansolo.spacefx.SpaceFXView#initOnBackground()
+methods_0_callees_10: javafx.scene.layout.StackPane#setBackground(javafx.scene.layout.Background)
+methods_0_callees_11: javafx.scene.Parent#getChildren()
+methods_0_callees_12: javafx.scene.media.MediaPlayer#play()
+methods_0_callees_13: eu.hansolo.spacefx.SpaceFXView$AnimationTimer#start()
+methods_0_callees_2: javafx.scene.layout.Pane#Pane(javafx.scene.Node[])
+methods_0_callees_3: javafx.scene.layout.Pane#setPrefSize(double, double)
+methods_0_callees_4: javafx.scene.layout.Pane#setBackground(javafx.scene.layout.Background)
+methods_0_callees_5: javafx.scene.input.TouchEvent#TOUCH_PRESSED
+methods_0_callees_6: javafx.scene.Node#addEventHandler(javafx.event.EventType, javafx.event.EventHandler)
+methods_0_callees_7: javafx.scene.Node#setOnTouchMoved(javafx.event.EventHandler)
+methods_0_callees_8: javafx.scene.Node#setOnMouseDragged(javafx.event.EventHandler)
+methods_0_callees_9: javafx.scene.control.Button#setOnAction(javafx.event.EventHandler)
+methods_0_code: |-
+  public SpaceFXView() {
+          init();
+          initOnBackground();
+
+          Pane pane = new Pane(canvas, shipTouchArea, hallOfFameBox, playerInitialsLabel, playerInitialsDigits, saveInitialsButton);
+          pane.setPrefSize(WIDTH, HEIGHT);
+          pane.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
+
+          if (SHOW_BUTTONS) {
+              canvas.addEventHandler(TouchEvent.TOUCH_PRESSED, touchHandler);
+              shipTouchArea.setOnTouchMoved(e -> {
+                  spaceShip.x = e.getTouchPoint().getX();
+                  spaceShip.y = e.getTouchPoint().getY();
+              });
+          } else {
+              shipTouchArea.setOnMouseDragged(e -> {
+                  spaceShip.x = e.getX();
+                  spaceShip.y = e.getY();
+              });
+          }
+
+          saveInitialsButton.setOnAction(e -> storePlayer());
+
+          setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
+          getChildren().add(pane);
+
+          // Start playing background music
+          if (PLAY_MUSIC) { mediaPlayer.play(); }
+
+          // Start timer to toggle between start screen and hall of fame
+          screenTimer.start();
+      }
+methods_0_method_name: eu.hansolo.spacefx.SpaceFXView#SpaceFXView()
+methods_0_parameters: ''
+methods_0_return value: ''
+methods_1_callees_0: eu.hansolo.spacefx.Fonts#spaceBoy(double)
+methods_1_callees_1: javafx.scene.control.Label#Label(java.lang.String)
+methods_1_callees_10: javafx.scene.control.Button#Button(java.lang.String)
+methods_1_callees_11: eu.hansolo.spacefx.PropertyManager#getProperties()
+methods_1_callees_12: eu.hansolo.spacefx.SpaceFXView$Player#Player(java.lang.String)
+methods_1_callees_13: java.util.ArrayList#ArrayList(int)
+methods_1_callees_14: java.util.List#add(java.lang.Object)
+methods_1_callees_15: eu.hansolo.spacefx.SpaceFXView#createHallOfFameEntry(eu.hansolo.spacefx.SpaceFXView$Player)
+methods_1_callees_16: javafx.scene.layout.VBox#VBox(double, javafx.scene.Node[])
+methods_1_callees_17: javafx.scene.layout.Pane#setPrefWidth(double)
+methods_1_callees_18: javafx.scene.layout.Pane#setAlignment(javafx.geometry.Pos)
+methods_1_callees_19: javafx.scene.layout.Pane#setTranslateY(double)
+methods_1_callees_2: javafx.scene.control.Labeled#setAlignment(javafx.geometry.Pos)
+methods_1_callees_20: javafx.scene.layout.Pane#setMouseTransparent(boolean)
+methods_1_callees_21: javafx.scene.layout.Pane#relocate(double, double)
+methods_1_callees_22: javafx.scene.media.MediaPlayer#setCycleCount(int)
+methods_1_callees_23: javafx.scene.media.MediaPlayer#setVolume(double)
+methods_1_callees_24: javafx.scene.canvas.Canvas#Canvas(double, double)
+methods_1_callees_25: javafx.scene.canvas.Canvas#getGraphicsContext2D()
+methods_1_callees_26: eu.hansolo.spacefx.SpaceFXView$Star#Star()
+methods_1_callees_27: eu.hansolo.spacefx.SpaceFXView$Asteroid#Asteroid(eu.hansolo.spacefx.Image)
+methods_1_callees_28: eu.hansolo.spacefx.SpaceFXView$SpaceShipExplosion#SpaceShipExplosion(double,
+  double, double, double)
+methods_1_callees_29: java.util.ArrayList#ArrayList()
+methods_1_callees_3: javafx.scene.control.Control#setPrefWidth(double)
+methods_1_callees_30: eu.hansolo.spacefx.SpaceFXView$AnimationTimer#AnimationTimer()
+methods_1_callees_31: eu.hansolo.spacefx.SpaceFXView$AnimationTimer#start()
+methods_1_callees_32: javafx.scene.shape.Circle#Circle()
+methods_1_callees_33: javafx.scene.input.TouchEvent#getEventType()
+methods_1_callees_34: javafx.scene.input.TouchEvent#TOUCH_PRESSED
+methods_1_callees_35: javafx.scene.input.TouchEvent#getTouchPoint()
+methods_1_callees_36: javafx.scene.input.TouchPoint#getX()
+methods_1_callees_37: javafx.scene.input.TouchPoint#getY()
+methods_1_callees_38: eu.hansolo.spacefx.Helper#isInsideCircle(double, double, double,
+  double, double)
+methods_1_callees_39: eu.hansolo.spacefx.SpaceFXView#spawnWeapon(double, double)
+methods_1_callees_4: eu.hansolo.spacefx.Helper#enableNode(javafx.scene.Node, boolean)
+methods_1_callees_40: eu.hansolo.spacefx.SpaceFXView#spawnRocket(double, double)
+methods_1_callees_41: eu.hansolo.spacefx.SpaceFXView#playSound(javafx.scene.media.AudioClip)
+methods_1_callees_42: eu.hansolo.spacefx.SpaceFXView#initStars()
+methods_1_callees_43: javafx.scene.canvas.GraphicsContext#setFont(javafx.scene.text.Font)
+methods_1_callees_44: javafx.scene.canvas.GraphicsContext#setTextAlign(javafx.scene.text.TextAlignment)
+methods_1_callees_45: javafx.scene.canvas.GraphicsContext#setTextBaseline(javafx.scene.text.VPos)
+methods_1_callees_46: javafx.scene.canvas.GraphicsContext#drawImage(javafx.scene.image.Image,
+  double, double, double, double)
+methods_1_callees_5: eu.hansolo.spacefx.SpaceFXView$InitialDigit#InitialDigit()
+methods_1_callees_6: javafx.scene.control.ToggleGroup#ToggleGroup()
+methods_1_callees_7: javafx.scene.control.ToggleButton#setToggleGroup(javafx.scene.control.ToggleGroup)
+methods_1_callees_8: javafx.scene.control.ToggleButton#setSelected(boolean)
+methods_1_callees_9: javafx.scene.layout.HBox#HBox(double, javafx.scene.Node[])
+methods_1_code: |-
+  public void init() {
+          scoreFont        = Fonts.spaceBoy(SCORE_FONT_SIZE);
+          running          = false;
+          gameOverScreen   = false;
+          levelBossActive  = false;
+          lastScreenToggle = System.nanoTime();
+          hallOfFameScreen = false;
+
+          playerInitialsLabel = new Label("Type in your initials");
+          playerInitialsLabel.setAlignment(Pos.CENTER);
+          playerInitialsLabel.setPrefWidth(WIDTH);
+          Helper.enableNode(playerInitialsLabel, false);
+
+          digit1 = new InitialDigit();
+          digit2 = new InitialDigit();
+          ToggleGroup toggleGroup = new ToggleGroup();
+          digit1.setToggleGroup(toggleGroup);
+          digit2.setToggleGroup(toggleGroup);
+          digit1.setSelected(true);
+          playerInitialsDigits = new HBox(0, digit1, digit2);
+          Helper.enableNode(playerInitialsDigits, false);
+
+          saveInitialsButton = new Button("Save Initials");
+          saveInitialsButton.setPrefWidth(WIDTH * 0.6);
+          Helper.enableNode(saveInitialsButton, false);
+
+          // PreFill hall of fame
+          properties = PropertyManager.INSTANCE.getProperties();
+
+          Player p1 = new Player(properties.getProperty("hallOfFame1"));
+          Player p2 = new Player(properties.getProperty("hallOfFame2"));
+          Player p3 = new Player(properties.getProperty("hallOfFame3"));
+
+          hallOfFame = new ArrayList<>(3);
+          hallOfFame.add(p1);
+          hallOfFame.add(p2);
+          hallOfFame.add(p3);
+
+          HBox p1Entry  = createHallOfFameEntry(p1);
+          HBox p2Entry  = createHallOfFameEntry(p2);
+          HBox p3Entry  = createHallOfFameEntry(p3);
+          hallOfFameBox = new VBox(20, p1Entry, p2Entry, p3Entry);
+          hallOfFameBox.setPrefWidth(WIDTH * 0.6);
+          hallOfFameBox.setAlignment(Pos.CENTER);
+          hallOfFameBox.setTranslateY(-HEIGHT * 0.1);
+          hallOfFameBox.setMouseTransparent(true);
+          hallOfFameBox.relocate((WIDTH - hallOfFameBox.getPrefWidth()) * 0.5, (HEIGHT - hallOfFameBox.getPrefHeight()) * 0.5);
+          Helper.enableNode(hallOfFameBox, false);
+
+          // Mediaplayer for background music
+          mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+          mediaPlayer.setVolume(0.2);
+
+          // Mediaplayer for game background music
+          gameMediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+          gameMediaPlayer.setVolume(0.5);
+
+          // Variable initialization
+          backgroundViewportY           = SWITCH_POINT;
+          canvas                        = new Canvas(WIDTH, HEIGHT);
+          ctx                           = canvas.getGraphicsContext2D();
+          stars                         = new Star[NO_OF_STARS];
+          asteroids                     = new Asteroid[NO_OF_ASTEROIDS];
+          spaceShipExplosion            = new SpaceShipExplosion(0, 0, 0, 0);
+          waves                         = new ArrayList<>();
+          wavesToRemove                 = new ArrayList<>();
+          enemyBosses                   = new ArrayList<>();
+          levelBosses                   = new ArrayList<>();
+          bonuses                       = new ArrayList<>();
+          rockets                       = new ArrayList<>();
+          torpedos                      = new ArrayList<>();
+          bigTorpedos                   = new ArrayList<>();
+          enemyRocketExplosions         = new ArrayList<>();
+          explosions                    = new ArrayList<>();
+          asteroidExplosions            = new ArrayList<>();
+          upExplosions                  = new ArrayList<>();
+          enemyTorpedos                 = new ArrayList<>();
+          enemyBombs                    = new ArrayList<>();
+          enemyBossTorpedos             = new ArrayList<>();
+          enemyBossRockets              = new ArrayList<>();
+          levelBossTorpedos             = new ArrayList<>();
+          levelBossRockets              = new ArrayList<>();
+          levelBossBombs                = new ArrayList<>();
+          levelBossExplosions           = new ArrayList<>();
+          enemyBossExplosions           = new ArrayList<>();
+          rocketExplosions              = new ArrayList<>();
+          hits                          = new ArrayList<>();
+          enemyHits                     = new ArrayList<>();
+          score                         = 0;
+          levelKills                    = 0;
+          kills                         = 0;
+          hasBeenHit                    = false;
+          noOfLifes                     = NO_OF_LIFES;
+          noOfShields                   = NO_OF_SHIELDS;
+          bigTorpedosEnabled            = false;
+          starburstEnabled              = false;
+          lastShieldActivated           = 0;
+          lastEnemyBossAttack           = System.nanoTime();
+          lastShieldUp                  = System.nanoTime();
+          lastLifeUp                    = System.nanoTime();
+          lastWave                      = System.nanoTime();
+          lastTorpedoFired              = System.nanoTime();
+          lastStarBlast                 = System.nanoTime();
+          lastBigTorpedoBonus           = System.nanoTime();
+          lastStarburstBonus            = System.nanoTime();
+          //long deltaTime                = FPS_60;
+          long deltaTime                = IS_BROWSER ? FPS_30 : FPS_60;
+          timer = new AnimationTimer() {
+              @Override public void handle(final long now) {
+                  if (now > lastTimerCall) {
+                      lastTimerCall = now + deltaTime;
+                      updateAndDraw();
+                  }
+                  if (now > lastEnemyBossAttack + ENEMY_BOSS_ATTACK_INTERVAL) {
+                      spawnEnemyBoss(spaceShip);
+                      lastEnemyBossAttack = now;
+                  }
+                  if (now > lastShieldUp + SHIELD_UP_SPAWN_INTERVAL && noOfShields < NO_OF_SHIELDS) {
+                      spawnShieldUp();
+                      lastShieldUp = now;
+                  }
+                  if (now > lastLifeUp + LIFE_UP_SPAWN_INTERVAL && noOfLifes < NO_OF_LIFES) {
+                      spawnLifeUp();
+                      lastLifeUp = now;
+                  }
+                  if (now > lastWave + WAVE_SPAWN_INTERVAL && SHOW_ENEMIES) {
+                      spawnWave();
+                      lastWave = now;
+                  }
+                  if (now > lastBigTorpedoBonus + BIG_TORPEDO_BONUS_INTERVAL) {
+                      spawnBigTorpedoBonus();
+                      lastBigTorpedoBonus = now;
+                  }
+                  if (now > lastStarburstBonus + STARBURST_BONUS_INTERVAL) {
+                      spawnStarburstBonus();
+                      lastStarburstBonus = now;
+                  }
+              }
+          };
+          screenTimer = new AnimationTimer() {
+              @Override public void handle(final long now) {
+                  if (!running && now > lastScreenToggle + SCREEN_TOGGLE_INTERVAL) {
+                      if (hallOfFameScreen) {
+                          ctx.drawImage(hallOfFameImg, 0, 0, WIDTH, HEIGHT);
+                          Helper.enableNode(hallOfFameBox, true);
+                      } else {
+                          ctx.drawImage(startImg, 0, 0, WIDTH, HEIGHT);
+                          Helper.enableNode(hallOfFameBox, false);
+                      }
+                      hallOfFameScreen = !hallOfFameScreen;
+                      lastScreenToggle = now;
+                  }
+              }
+          };
+
+          shipTouchArea = new Circle();
+
+          touchHandler = e -> {
+              EventType<TouchEvent>  type  = e.getEventType();
+              if (TouchEvent.TOUCH_PRESSED.equals(type)) {
+                  if (SHOW_BUTTONS) {
+                      double x = e.getTouchPoint().getX();
+                      double y = e.getTouchPoint().getY();
+                      if (Helper.isInsideCircle(TORPEDO_BUTTON_CX, TORPEDO_BUTTON_CY, TORPEDO_BUTTON_R, x, y)) {
+                          spawnWeapon(spaceShip.x, spaceShip.y);
+                      } else if (Helper.isInsideCircle(ROCKET_BUTTON_CX, ROCKET_BUTTON_CY, ROCKET_BUTTON_R, x, y)) {
+                          if (rockets.size() < MAX_NO_OF_ROCKETS) {
+                              spawnRocket(spaceShip.x, spaceShip.y);
+                          }
+                      } else if (Helper.isInsideCircle(SHIELD_BUTTON_CX, SHIELD_BUTTON_CY, SHIELD_BUTTON_R, x, y)) {
+                          if (noOfShields > 0 && !spaceShip.shield) {
+                              lastShieldActivated = System.nanoTime();
+                              spaceShip.shield = true;
+                              playSound(deflectorShieldSound);
+                          }
+                      }
+                  }
+              }
+          };
+
+          initStars();
+
+          scorePosX = WIDTH * 0.5;
+          scorePosY = 40 * SCALING_FACTOR;
+
+          //mobileOffsetY = isIOS() ? 30 : 0;
+          mobileOffsetY = 0;
+
+          // Preparing GraphicsContext
+          ctx.setFont(scoreFont);
+          ctx.setTextAlign(TextAlignment.CENTER);
+          ctx.setTextBaseline(VPos.CENTER);
+          ctx.drawImage(startImg, 0, 0, WIDTH, HEIGHT);
+      }
+methods_1_method_name: eu.hansolo.spacefx.SpaceFXView#init()
+methods_1_parameters: ''
+methods_1_return value: ''
+package: eu.hansolo.spacefx
+purpose: A JavaFX game view for the SpaceFX game

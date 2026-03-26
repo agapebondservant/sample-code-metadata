@@ -1,1 +1,14 @@
-{"file_path": "src/main/java/eu/hansolo/spacefx/Difficulty.java", "git_repo": "https://github.com/agapebondservant/spacefx-sample-javafx.git", "language": "java", "purpose": "Enumeration representing different difficulty levels in the game", "package": "eu.hansolo.spacefx", "classes.0": "eu.hansolo.spacefx.Difficulty", "methods.0.method_name": "eu.hansolo.spacefx.Difficulty.<init>", "methods.0.code": "Difficulty(final int noOfEnemies, final int noOfSmartEnemies) {\n        this.noOfEnemies      = noOfEnemies;\n        this.noOfSmartEnemies = noOfSmartEnemies;\n    }", "methods.0.parameters": "noOfEnemies (int), noOfSmartEnemies (int)", "methods.0.return value": "None, constructor"}
+classes_0: eu.hansolo.spacefx.Difficulty
+file_path: src/main/java/eu/hansolo/spacefx/Difficulty.java
+git_repo: https://github.com/agapebondservant/spacefx-sample-javafx.git
+language: java
+methods_0_code: |-
+  Difficulty(final int noOfEnemies, final int noOfSmartEnemies) {
+          this.noOfEnemies      = noOfEnemies;
+          this.noOfSmartEnemies = noOfSmartEnemies;
+      }
+methods_0_method_name: eu.hansolo.spacefx.Difficulty.<init>
+methods_0_parameters: noOfEnemies (int), noOfSmartEnemies (int)
+methods_0_return value: None, constructor
+package: eu.hansolo.spacefx
+purpose: Enumeration representing different difficulty levels in the game

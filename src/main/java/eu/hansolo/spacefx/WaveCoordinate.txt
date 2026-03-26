@@ -2,7 +2,7 @@
 
  Package: eu.hansolo.spacefx
 
- Purpose: Represents a wave coordinate with x, y, and r values
+ Purpose: Represents a wave coordinate with x, y, and r properties
 
  Classes:
 - eu.hansolo.spacefx.WaveCoordinate

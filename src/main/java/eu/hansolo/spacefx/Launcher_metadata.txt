@@ -1,1 +1,14 @@
-{"file_path": "src/main/java/eu/hansolo/spacefx/Launcher.java", "git_repo": "https://github.com/agapebondservant/spacefx-sample-javafx.git", "language": "java", "purpose": "Launcher class for the SpaceFX application", "package": "eu.hansolo.spacefx", "classes.0": "eu.hansolo.spacefx.Launcher", "methods.0.method_name": "eu.hansolo.spacefx.Launcher.main", "methods.0.code": "public static void main(String[] args) {\n        SpaceFX.main(args);\n    }", "methods.0.callees.0": "eu.hansolo.spacefx.SpaceFX.main", "methods.0.parameters": "String[] args", "methods.0.return value": "void"}
+classes_0: eu.hansolo.spacefx.Launcher
+file_path: src/main/java/eu/hansolo/spacefx/Launcher.java
+git_repo: https://github.com/agapebondservant/spacefx-sample-javafx.git
+language: java
+methods_0_callees_0: eu.hansolo.spacefx.SpaceFX.main
+methods_0_code: |-
+  public static void main(String[] args) {
+          SpaceFX.main(args);
+      }
+methods_0_method_name: eu.hansolo.spacefx.Launcher.main
+methods_0_parameters: 'args: String[]'
+methods_0_return value: void
+package: eu.hansolo.spacefx
+purpose: Launcher class to start the SpaceFX application
